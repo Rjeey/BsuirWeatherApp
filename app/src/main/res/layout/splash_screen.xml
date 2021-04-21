@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   tools:context=".onboarding.screen.SplashFragment"
+                                                   android:orientation="vertical"
+                                                   android:background="@drawable/bg_gradient">
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/WeatherImage"
+            android:layout_width="144dp"
+            android:layout_height="148dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/splash"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="120dp"/>
+
+    <TextView android:id="@+id/TextView"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textSize="38sp"
+              android:textStyle="italic"
+              android:textColor="@color/black_overlay"
+              android:text="Welcome to"
+              app:layout_constraintTop_toBottomOf="@+id/WeatherImage"
+              app:layout_constraintRight_toRightOf="parent"
+              app:layout_constraintLeft_toLeftOf="parent"
+              android:layout_marginTop="70dp"
+    />
+
+    <TextView android:id="@+id/TextView2"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="@color/black_overlay"
+              android:text="weather app"
+              android:textSize="34sp"
+              app:layout_constraintTop_toBottomOf="@+id/TextView"
+              app:layout_constraintRight_toRightOf="parent"
+              app:layout_constraintLeft_toLeftOf="parent"
+              android:layout_marginTop="5dp"
+              />
+
+    <TextView android:id="@+id/author"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="created by Rjeey"
+              android:textSize="15sp"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintRight_toRightOf="parent"
+              app:layout_constraintLeft_toLeftOf="parent"
+              android:layout_marginBottom="10dp"
+              />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
