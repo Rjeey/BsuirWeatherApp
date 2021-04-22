@@ -10,8 +10,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/WeatherImage"
-            android:layout_width="144dp"
-            android:layout_height="148dp"
+            android:layout_width="144sp"
+            android:layout_height="148sp"
             android:scaleType="fitXY"
             android:src="@drawable/splash"
             app:layout_constraintTop_toTopOf="parent"

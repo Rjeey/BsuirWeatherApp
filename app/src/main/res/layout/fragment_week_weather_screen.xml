@@ -7,10 +7,165 @@
                 android:background="@drawable/bg_gradient"
                 android:gravity="center">
 
-    <TextView android:id="@+id/address"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:textSize="24sp"
-              android:text="Layout 2"/>
+    <LinearLayout android:id="@+id/addressContainer" android:layout_width="match_parent"
+                  android:layout_height="wrap_content" android:orientation="vertical"
+                  android:gravity="center">
+        <TextView android:id="@+id/status" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="30sp"
+                  android:layout_gravity="center"
+                  android:layout_marginTop="30sp"
+                  android:text="Clear Sky"/>
+        <TextView android:id="@+id/address" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="20sp"
+                  android:layout_marginTop="20sp"
+                  android:text="DHAKA, BD"/>
+        <TextView android:id="@+id/updated_at" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:layout_marginTop="15sp"
+                  android:text="20 April 2012, 20:08 PM"/>
+    </LinearLayout>
 
+
+    <LinearLayout android:id="@+id/overviewContainer" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_centerInParent="true">
+
+        <TextView android:id="@+id/temp" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="120sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="center"
+                  android:layout_marginBottom="200sp"
+                  android:text="29°C"/>
+    </LinearLayout>
+
+
+    <LinearLayout android:id="@+id/bottomContainer" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_alignParentBottom="true">
+
+        <TextView android:id="@+id/weekDay" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:text="MON"/>
+
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="50sp"
+                                                      android:layout_height="50sp"
+                                                      android:scaleType="fitXY"
+                                                      android:src="@drawable/sky"/>
+
+        <TextView android:id="@+id/statusIcon" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:text="29°C"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/bottomContainer2" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_alignParentBottom="true"
+                  android:layout_marginLeft="80sp">
+
+        <TextView android:id="@+id/weekDay2" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:text="TUE"/>
+
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="50sp"
+                                                      android:layout_height="50sp"
+                                                      android:scaleType="fitXY"
+                                                      android:src="@drawable/sky"/>
+
+        <TextView android:id="@+id/bottom2" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:text="29°C"/>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/bottomContainer3" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_alignParentBottom="true"
+                  android:layout_marginLeft="160sp">
+
+        <TextView android:id="@+id/weekDay3" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:text="WED"/>
+
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="50sp"
+                                                      android:layout_height="50sp"
+                                                      android:scaleType="fitXY"
+                                                      android:src="@drawable/sky"/>
+
+        <TextView android:id="@+id/bottom3" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:text="29°C"/>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/bottomContainer4" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_alignParentBottom="true"
+                  android:layout_marginLeft="230sp">
+
+        <TextView android:id="@+id/weekDay4" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:text="THU"/>
+
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="50sp"
+                                                      android:layout_height="50sp"
+                                                      android:scaleType="fitXY"
+                                                      android:src="@drawable/sky"/>
+
+        <TextView android:id="@+id/bottom4" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:text="29°C"/>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/bottomContainer5" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_alignParentBottom="true"
+                  android:layout_marginLeft="300sp">
+
+        <TextView android:id="@+id/weekDay5" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:text="FRI"/>
+
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="50sp"
+                                                      android:layout_height="50sp"
+                                                      android:scaleType="fitXY"
+                                                      android:src="@drawable/sky"/>
+
+        <TextView android:id="@+id/bottom5" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:text="29°C"/>
+    </LinearLayout>
 </RelativeLayout>
