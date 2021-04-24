@@ -3,14 +3,202 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="25dp"
+                android:padding="10sp"
                 android:background="@drawable/bg_gradient"
                 android:gravity="center">
 
-    <TextView android:id="@+id/address"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:textSize="24sp"
-              android:text="Layout 2"/>
+    <LinearLayout android:id="@+id/addressContainer" android:layout_width="match_parent"
+                  android:layout_height="wrap_content" android:orientation="vertical"
+                  android:gravity="center">
+        <TextView android:id="@+id/status" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="30sp"
+                  android:layout_gravity="center"
+                  android:layout_marginTop="30sp"
+                  android:text="Clear Sky"/>
+        <TextView android:id="@+id/address" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="20sp"
+                  android:layout_marginTop="20sp"
+                  android:text="DHAKA, BD"/>
+        <TextView android:id="@+id/updated_at" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:layout_marginTop="15sp"
+                  android:text="20 April 2012, 20:08 PM"/>
+    </LinearLayout>
+
+
+    <LinearLayout android:id="@+id/overviewContainer" android:layout_width="356dp"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_alignParentBottom="true" android:layout_marginBottom="358sp"
+                  android:layout_alignParentEnd="true" android:layout_alignParentRight="true"
+                  android:layout_marginRight="30dp" android:layout_marginEnd="30sp"
+                  android:layout_alignParentStart="true" android:layout_marginLeft="25sp"
+                  android:layout_marginStart="25dp" android:layout_alignParentLeft="true"
+                  android:layout_marginTop="187dp" android:layout_alignParentTop="true">
+
+        <TextView android:id="@+id/temp" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="120sp"
+                  android:fontFamily="sans-serif-thin"
+                  android:layout_gravity="center|center_horizontal|center_vertical"
+                  android:text="29°C"/>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/bottomContainer" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_alignParentBottom="true" android:layout_alignParentStart="true"
+                  android:layout_marginLeft="5sp" android:layout_marginStart="5sp"
+                  android:layout_alignParentLeft="true">
+
+        <TextView android:id="@+id/weekDay" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:textAlignment="center"
+                  android:gravity="center_horizontal"
+                  android:text="MON"/>
+
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="50sp"
+                                                      android:layout_height="50sp"
+                                                      android:scaleType="fitXY"
+                                                      android:layout_gravity="center_horizontal"
+                                                      android:src="@drawable/sky"/>
+
+        <TextView android:id="@+id/statusIcon" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:textAlignment="center"
+                  android:gravity="center_horizontal"
+                  android:text="29°C"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/bottomContainer2" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_alignParentBottom="true"
+                  android:layout_marginLeft="22sp" android:layout_toEndOf="@+id/bottomContainer"
+                  android:layout_toRightOf="@+id/bottomContainer" android:layout_marginStart="22sp">
+
+        <TextView android:id="@+id/weekDay2" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:textAlignment="center"
+                  android:gravity="center_horizontal"
+                  android:text="TUE"/>
+
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="50sp"
+                                                      android:layout_height="50sp"
+                                                      android:scaleType="fitXY"
+                                                      android:src="@drawable/sky"/>
+
+        <TextView android:id="@+id/bottom2" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:textAlignment="center"
+                  android:gravity="center_horizontal"
+                  android:text="29°C"/>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/bottomContainer3" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_alignParentBottom="true"
+                  android:layout_marginLeft="22sp" android:layout_toEndOf="@+id/bottomContainer2"
+                  android:layout_toRightOf="@+id/bottomContainer2" android:layout_marginStart="22sp">
+
+        <TextView android:id="@+id/weekDay3" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:textAlignment="center"
+                  android:gravity="center_horizontal"
+                  android:text="WED"/>
+
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="50sp"
+                                                      android:layout_height="50sp"
+                                                      android:scaleType="fitXY"
+                                                      android:src="@drawable/sky"/>
+
+        <TextView android:id="@+id/bottom3" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:textAlignment="center"
+                  android:gravity="center_horizontal"
+                  android:text="29°C"/>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/bottomContainer4" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_alignParentBottom="true"
+                  android:layout_marginLeft="22sp" android:layout_toEndOf="@+id/bottomContainer3"
+                  android:layout_toRightOf="@+id/bottomContainer3" android:layout_marginStart="22sp">
+
+        <TextView android:id="@+id/weekDay4" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:textAlignment="center"
+                  android:gravity="center_horizontal"
+                  android:text="THU"/>
+
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="50sp"
+                                                      android:layout_height="50sp"
+                                                      android:scaleType="fitXY"
+                                                      android:src="@drawable/sky"/>
+
+        <TextView android:id="@+id/bottom4" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:textAlignment="center"
+                  android:gravity="center_horizontal"
+                  android:text="29°C"/>
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/bottomContainer5" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_alignParentBottom="true"
+                  android:layout_marginLeft="22sp" android:layout_toEndOf="@+id/bottomContainer4"
+                  android:layout_toRightOf="@+id/bottomContainer4" android:layout_marginStart="22sp"
+                  android:layout_centerHorizontal="true"
+                  android:layout_marginRight="5sp" android:layout_marginEnd="5sp">
+
+        <TextView android:id="@+id/weekDay5" android:layout_width="match_parent"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:textAlignment="center"
+                  android:gravity="center_horizontal"
+                  android:text="FRI"/>
+
+        <androidx.appcompat.widget.AppCompatImageView android:layout_width="50sp"
+                                                      android:layout_height="50sp"
+                                                      android:scaleType="fitXY"
+                                                      android:src="@drawable/sky"/>
+
+        <TextView android:id="@+id/bottom5" android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:textSize="15sp"
+                  android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
+                  android:padding="10sp"
+                  android:textStyle="bold"
+                  android:textAlignment="center"
+                  android:gravity="center_horizontal"
+                  android:text="29°C"/>
+    </LinearLayout>
 
 </RelativeLayout>
