@@ -7,13 +7,12 @@ import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.androdocs.weatherapp.R
-import com.androdocs.weatherapp.model.WeatherData
 import org.json.JSONObject
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ServiceWeather(@field:SuppressLint("StaticFieldLeak") var view: View) : AsyncTask<String, Void, String>() {
+class TestServiceWeather(@SuppressLint("StaticFieldLeak") var view: View) : AsyncTask<String, Void, String>() {
 
     var city: String = "delhi,in"
     val api: String = "29ce07b6457ed3fa2eb37330c490be99" // Use your own API key
@@ -28,7 +27,7 @@ class ServiceWeather(@field:SuppressLint("StaticFieldLeak") var view: View) : As
 
     override fun doInBackground(vararg params: String?): String? {
         return try {
-                URL("https://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&appid=$api")
+            URL("https://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&appid=$api")
                 .readText(Charsets.UTF_8)
         } catch (e: Exception) {
             println(e.printStackTrace())
@@ -46,6 +45,7 @@ class ServiceWeather(@field:SuppressLint("StaticFieldLeak") var view: View) : As
             val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
 
             val updatedAt: Long = jsonObj.getLong("dt")
+            val dayOfWeek = SimpleDateFormat("EEE", Locale.ENGLISH).format(Date(updatedAt * 1000))
             val updatedAtText = "Updated at: " + SimpleDateFormat(
                 "dd/MM/yyyy hh:mm a",
                 Locale.ENGLISH
