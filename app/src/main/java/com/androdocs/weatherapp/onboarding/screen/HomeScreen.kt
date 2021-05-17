@@ -1,6 +1,8 @@
 package com.androdocs.weatherapp.onboarding.screen
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +11,8 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatDelegate
+import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.androdocs.weatherapp.R
@@ -23,6 +26,7 @@ class HomeScreen : Fragment() {
     val city: String = "delhi,in"
     val api: String = "29ce07b6457ed3fa2eb37330c490be99" // Use your own API key
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,13 +35,31 @@ class HomeScreen : Fragment() {
         return inflater.inflate(R.layout.fragment_home_screen, container, false)
     }
 
+    fun  isNetworkAvailbale():Boolean{
+        val conManager = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val internetInfo =conManager.activeNetworkInfo
+        return internetInfo!=null && internetInfo.isConnected
+    }
+
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        WeatherTask().execute()
+        if(isNetworkAvailbale()) {
+            WeatherTask().execute()
+        }else{
+            Toast.makeText(this.context, "Internet is not Connected", Toast.LENGTH_LONG).show()
+        }
+
         val swipe = view.findViewById<SwipeRefreshLayout>(R.id.swipeToRefresh)
         swipe.setOnRefreshListener {
-            WeatherTask().execute()
+            if(isNetworkAvailbale()) {
+                WeatherTask().execute()
+            }else{
+                Toast.makeText(this.context, "Internet is not Connected", Toast.LENGTH_LONG).show()
+            }
             swipe.isRefreshing = false
         }
 
@@ -54,6 +76,7 @@ class HomeScreen : Fragment() {
         }
 
         override fun doInBackground(vararg params: String?): String? {
+
             return try {
                 URL("https://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&appid=$api")
                     .readText(Charsets.UTF_8)
@@ -63,7 +86,7 @@ class HomeScreen : Fragment() {
             }
         }
 
-        override fun onPostExecute(result: String?) {
+        override fun onPostExecute(result: String) {
             super.onPostExecute(result)
             try {
                 val jsonObj = JSONObject(result)

@@ -1,5 +1,8 @@
 package com.androdocs.weatherapp.model
 
+import androidx.room.Entity
+
+//@Entity
 data class WeatherData(val address: String,
                        val update_at: String,
                        val status: String,
