@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.androdocs.weatherapp.Constants
 import com.androdocs.weatherapp.R
 import org.json.JSONObject
 import java.net.URL
@@ -23,9 +24,8 @@ import java.util.*
 
 class HomeScreen : Fragment() {
 
-    val city: String = "delhi,in"
-    val api: String = "29ce07b6457ed3fa2eb37330c490be99" // Use your own API key
-
+    val city = Constants.city
+    val api = Constants.api
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
