@@ -1,5 +1,6 @@
 package com.androdocs.weatherapp.controller
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -30,7 +31,7 @@ class MainActivity :AppCompatActivity() {
     }
 
     fun openDialog(view: View){
-        val bundle = AlertDialog.Builder(this)
+        val bundle = AlertDialog.Builder(this, R.style.AppTheme )
         bundle.setTitle("Country List")
 
         bundle.setItems(countryList.toTypedArray()){ _, which ->
