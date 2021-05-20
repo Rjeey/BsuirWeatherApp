@@ -1,12 +1,15 @@
 package com.androdocs.weatherapp.controller
 
 import android.annotation.SuppressLint
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.androdocs.weatherapp.Constants
 import com.androdocs.weatherapp.R
 import java.util.*
 
@@ -31,11 +34,12 @@ class MainActivity :AppCompatActivity() {
     }
 
     fun openDialog(view: View){
-        val bundle = AlertDialog.Builder(this, R.style.AppTheme )
+        val bundle = AlertDialog.Builder(this)
         bundle.setTitle("Country List")
 
         bundle.setItems(countryList.toTypedArray()){ _, which ->
-            Toast.makeText(applicationContext, countryList[which], Toast.LENGTH_LONG).show()
+            Constants.city = countryList[which]
+            Toast.makeText(applicationContext, Constants.city, Toast.LENGTH_LONG).show()
         }
         val dialog  = bundle.create()
         dialog.show()

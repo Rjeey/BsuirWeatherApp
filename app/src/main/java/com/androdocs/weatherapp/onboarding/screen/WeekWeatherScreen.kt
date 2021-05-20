@@ -29,21 +29,7 @@ class WeekWeatherScreen : Fragment() {
         return internetInfo!=null && internetInfo.isConnected
     }
 
-    companion object {
-        private class GeoCoderHandler(private val context: Context?) : Handler() {
-            override fun handleMessage(message: Message) {
-                val locationAddress: String?
-                locationAddress = when (message.what) {
-                    1 -> {
-                        val bundle = message.data
-                        bundle.getString("address")
-                    }
-                    else -> null
-                }
-                Toast.makeText(context, locationAddress , Toast.LENGTH_LONG).show()
-            }
-        }
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,7 +42,7 @@ class WeekWeatherScreen : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         locationAddress.getAddressFromLocation(Constants.city, context,
-            GeoCoderHandler(context))
+            LocationFinder.Companion.GeoCoderHandler(context))
 
     }
 }

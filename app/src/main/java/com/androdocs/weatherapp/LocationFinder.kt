@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.util.Log
+import android.widget.Toast
 import java.io.IOException
 import java.util.*
 
@@ -49,5 +50,21 @@ class LocationFinder {
             }
         }
         thread.start()
+    }
+
+    companion object {
+        class GeoCoderHandler(private val context: Context?) : Handler() {
+            override fun handleMessage(message: Message) {
+                val locationAddress: String?
+                locationAddress = when (message.what) {
+                    1 -> {
+                        val bundle = message.data
+                        bundle.getString("address")
+                    }
+                    else -> null
+                }
+                Toast.makeText(context, locationAddress , Toast.LENGTH_LONG).show()
+            }
+        }
     }
 }
