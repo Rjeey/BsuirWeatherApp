@@ -26,6 +26,7 @@ class HomeScreen : Fragment() {
 
     val city = Constants.city
     val api = Constants.api
+    lateinit var cityView:TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +45,9 @@ class HomeScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        cityView = view.findViewById(R.id.address)
+        cityView.text = city
 
         if(isNetworkAvailbale()) {
             WeatherTask().execute()

@@ -40,9 +40,5 @@ class WeekWeatherScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        locationAddress.getAddressFromLocation(Constants.city, context,
-            LocationFinder.Companion.GeoCoderHandler(context))
-
     }
 }

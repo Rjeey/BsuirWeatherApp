@@ -5,11 +5,13 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.androdocs.weatherapp.Constants
+import com.androdocs.weatherapp.LocationFinder
 import com.androdocs.weatherapp.R
 import java.util.*
 
@@ -39,7 +41,10 @@ class MainActivity :AppCompatActivity() {
 
         bundle.setItems(countryList.toTypedArray()){ _, which ->
             Constants.city = countryList[which]
+            view.findViewById<TextView>(R.id.address).text = countryList[which]
             Toast.makeText(applicationContext, Constants.city, Toast.LENGTH_LONG).show()
+            LocationFinder().getAddressFromLocation(Constants.city, view.context,
+                LocationFinder.Companion.GeoCoderHandler(view.context))
         }
         val dialog  = bundle.create()
         dialog.show()
