@@ -1,15 +1,11 @@
 package com.androdocs.weatherapp.controller
 
-import android.annotation.SuppressLint
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import com.androdocs.weatherapp.Constants
 import com.androdocs.weatherapp.LocationFinder
 import com.androdocs.weatherapp.R
@@ -31,7 +27,8 @@ class MainActivity :AppCompatActivity() {
         val start= Locale.getISOCountries();
         for (country:String in start) run {
             val locale = Locale("en", country)
-            countryList.add(locale.displayCountry)
+
+            countryList.add(locale.displayCountry+locale.getDisplayName())
         }
     }
 
