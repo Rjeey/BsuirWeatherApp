@@ -57,6 +57,7 @@ class HomeScreen : Fragment() {
 
         val swipe = view.findViewById<SwipeRefreshLayout>(R.id.swipeToRefresh)
         swipe.setOnRefreshListener {
+            cityView.text = city
             if(isNetworkAvailbale()) {
                 WeatherTask().execute()
             }else{

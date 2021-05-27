@@ -59,11 +59,13 @@
                   android:gravity="center_horizontal"
                   android:text="MON"/>
 
-        <androidx.appcompat.widget.AppCompatImageView android:layout_width="50sp"
-                                                      android:layout_height="50sp"
-                                                      android:scaleType="fitXY"
-                                                      android:layout_gravity="center_horizontal"
-                                                      android:src="@drawable/sky"/>
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/firstIconView"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:scaleType="fitXY"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/sky"/>
 
         <TextView android:id="@+id/statusIcon" android:layout_width="wrap_content"
                   android:layout_height="wrap_content" android:textSize="15sp"
@@ -92,10 +94,12 @@
                   android:gravity="center_horizontal"
                   android:text="TUE"/>
 
-        <androidx.appcompat.widget.AppCompatImageView android:layout_width="50sp"
-                                                      android:layout_height="50sp"
-                                                      android:scaleType="fitXY"
-                                                      android:src="@drawable/sky"/>
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/secondIconView"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:scaleType="fitXY"
+                android:src="@drawable/sky"/>
 
         <TextView android:id="@+id/bottom2" android:layout_width="wrap_content"
                   android:layout_height="wrap_content" android:textSize="15sp"
@@ -123,10 +127,12 @@
                   android:gravity="center_horizontal"
                   android:text="WED"/>
 
-        <androidx.appcompat.widget.AppCompatImageView android:layout_width="50sp"
-                                                      android:layout_height="50sp"
-                                                      android:scaleType="fitXY"
-                                                      android:src="@drawable/sky"/>
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/thirdIconView"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:scaleType="fitXY"
+                android:src="@drawable/sky"/>
 
         <TextView android:id="@+id/bottom3" android:layout_width="wrap_content"
                   android:layout_height="wrap_content" android:textSize="15sp"
@@ -154,10 +160,12 @@
                   android:gravity="center_horizontal"
                   android:text="THU"/>
 
-        <androidx.appcompat.widget.AppCompatImageView android:layout_width="50sp"
-                                                      android:layout_height="50sp"
-                                                      android:scaleType="fitXY"
-                                                      android:src="@drawable/sky"/>
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/fourthIconView"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:scaleType="fitXY"
+                android:src="@drawable/sky"/>
 
         <TextView android:id="@+id/bottom4" android:layout_width="wrap_content"
                   android:layout_height="wrap_content" android:textSize="15sp"
@@ -187,10 +195,12 @@
                   android:gravity="center_horizontal"
                   android:text="FRI"/>
 
-        <androidx.appcompat.widget.AppCompatImageView android:layout_width="50sp"
-                                                      android:layout_height="50sp"
-                                                      android:scaleType="fitXY"
-                                                      android:src="@drawable/sky"/>
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/fifthIconView"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:scaleType="fitXY"
+                android:src="@drawable/sky"/>
 
         <TextView android:id="@+id/bottom5" android:layout_width="wrap_content"
                   android:layout_height="wrap_content" android:textSize="15sp"

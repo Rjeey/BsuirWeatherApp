@@ -30,6 +30,8 @@ class LocationFinder {
                     if (addressList != null && addressList.size > 0) {
                         val address = addressList.get(0) as Address
                         val sb = StringBuilder()
+                        Constants.lat = address.latitude.toString()
+                        Constants.lon = address.longitude.toString()
                         sb.append(address.latitude).append("\n")
                         sb.append(address.longitude).append("\n")
                         result = sb.toString()
