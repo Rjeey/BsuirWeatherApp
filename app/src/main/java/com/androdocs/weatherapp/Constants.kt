@@ -6,7 +6,7 @@ class Constants {
     companion object {
         val api: String = "29ce07b6457ed3fa2eb37330c490be99"
         var city: String = "delhi,in"
-        var lat: String = ""
-        var lon: String = ""
+        var lat: String = "77.2167"
+        var lon: String = "28.6667"
     }
 }
