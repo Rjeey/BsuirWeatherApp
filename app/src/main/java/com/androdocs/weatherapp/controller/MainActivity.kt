@@ -6,6 +6,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.androdocs.weatherapp.Constants
 import com.androdocs.weatherapp.LocationFinder
 import com.androdocs.weatherapp.R
@@ -20,7 +21,6 @@ class MainActivity :AppCompatActivity() {
         setContentView(R.layout.activity_main)
         getCountries()
     }
-
 
 
     fun getCountries(){

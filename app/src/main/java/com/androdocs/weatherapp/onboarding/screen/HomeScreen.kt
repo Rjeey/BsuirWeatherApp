@@ -24,7 +24,7 @@ import java.util.*
 
 class HomeScreen : Fragment() {
 
-    val city = Constants.city
+    var city = Constants.city
     val api = Constants.api
     lateinit var cityView:TextView
 
@@ -81,7 +81,7 @@ class HomeScreen : Fragment() {
         override fun doInBackground(vararg params: String?): String? {
 
             return try {
-                URL("https://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&appid=$api")
+                URL("https://api.openweathermap.org/data/2.5/weather?q=${Constants.city}&units=metric&appid=$api")
                     .readText(Charsets.UTF_8)
             } catch (e: Exception) {
                 println(e.printStackTrace())
