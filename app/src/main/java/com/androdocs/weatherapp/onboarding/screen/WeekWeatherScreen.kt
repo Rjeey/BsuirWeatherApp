@@ -83,15 +83,17 @@ class WeekWeatherScreen : Fragment() {
             super.onPreExecute()
 
             view!!.findViewById<ProgressBar>(R.id.loader).visibility = View.VISIBLE
-//            view!!.findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.GONE
+            view!!.findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.GONE
             view!!.findViewById<TextView>(R.id.errorText).visibility = View.GONE
         }
 
         override fun doInBackground(vararg params: String?): String? {
 //onecall?lat=53.893009&lon=27.567444&exclude=hourly,current,minutely&units=metric&appid=29ce07b6457ed3fa2eb37330c490be99
             return try {
-                URL("https://api.openweathermap.org/data/2.5/onecall?lat=${Constants.lat}&lon=${Constants.lon}" +
-                        "&exclude=hourly,minutely&units=metric&appid=$api")
+                URL(
+                    "https://api.openweathermap.org/data/2.5/onecall?lat=${Constants.lat}&lon=${Constants.lon}" +
+                            "&exclude=hourly,minutely,alerts&units=metric&appid=$api"
+                )
                     .readText(Charsets.UTF_8)
             } catch (e: Exception) {
                 println(e.printStackTrace())
@@ -101,85 +103,81 @@ class WeekWeatherScreen : Fragment() {
 
         override fun onPostExecute(result: String) {
             super.onPostExecute(result)
+//            println(result)
             try {
                 val jsonObj = JSONObject(result)
 
-                val jsonArray = JSONArray(result)
-                for (i in 0 until 5) {
-                    var item = jsonArray.getJSONObject(i)
-                    val main = item.getJSONObject("main")
-                    val sys = item.getJSONObject("sys")
-                    val wind = item.getJSONObject("wind")
-                    val weather = item.getJSONArray("weather").getJSONObject(0)
+                val address = jsonObj.get("timezone").toString().replace("/", ", ")
 
-                    val updatedAt: Long = item.getLong("dt")
-                    val updatedAtText = "Updated at: " + SimpleDateFormat(
-                        "dd/MM/yyyy hh:mm a",
-                        Locale.ENGLISH
-                    ).format(Date(updatedAt * 1000))
-
-                    val temp = main.getString("temp") + "°C"
-//                    val tempMin = "Min Temp: " + main.getString("temp_min") + "°C"
-//                    val tempMax = "Max Temp: " + main.getString("temp_max") + "°C"
-//                    val pressure = main.getString("pressure")
-//                    val humidity = main.getString("humidity")
-//
-//                    val sunrise: Long = sys.getLong("sunrise")
-//                    val sunset: Long = sys.getLong("sunset")
-//                    val windSpeed = wind.getString("speed")
-                    val weatherDescription = weather.getString("description")
-                    val icon = weather.getString("icon")
-
-                    val address = item.getString("name") + ", " + sys.getString("country")
+                val current = jsonObj.getJSONObject("current")
+                val temp: Int = current.getInt("temp")
 
 
-// there we are put our weather data in a view fragments
+                val tempcon = "$temp °C"
+
+                val updatedAt: Long = current.getLong("dt")
+                val updatedAtText = "Updated at: " + SimpleDateFormat(
+                    "dd/MM/yyyy hh:mm a",
+                    Locale.ENGLISH
+                ).format(Date(updatedAt * 1000))
+
+                val weather = current.getJSONArray("weather").getJSONObject(0)
+                val weatherDescription = weather.getString("description")
+
+                view!!.findViewById<TextView>(R.id.address).text = address
+                view!!.findViewById<TextView>(R.id.updated_at).text = updatedAtText
+                view!!.findViewById<TextView>(R.id.status).text = weatherDescription.capitalize()
+                view!!.findViewById<TextView>(R.id.temp).text = tempcon
 
 
-                    when (i) {
-                        1 -> {
-                            Picasso.with(context).load("http://openweathermap.org/img/wn/$icon@2x.png")
-                                .into(firstImageView)
-                        }
-                        2 -> {
-                            Picasso.with(context).load("http://openweathermap.org/img/wn/$icon@2x.png")
-                                .into(secondImageView)
-                        }
-                        3 -> {
-                            Picasso.with(context).load("http://openweathermap.org/img/wn/$icon@2x.png")
-                                .into(thirdImageView)
-                        }
-                        4 -> {
-                            Picasso.with(context).load("http://openweathermap.org/img/wn/$icon@2x.png")
-                                .into(fourthImageView)
-                        }
-                        5 -> {
-                            Picasso.with(context).load("http://openweathermap.org/img/wn/$icon@2x.png")
-                                .into(fifthImageView)
-                        }
-                    }
+                val jsonArray = jsonObj.getJSONArray("daily")
+                println(jsonArray)
+                setIcon(jsonArray)
 
-                    view!!.findViewById<TextView>(R.id.address).text = address
-                    view!!.findViewById<TextView>(R.id.updated_at).text = updatedAtText
-                    view!!.findViewById<TextView>(R.id.status).text = weatherDescription.capitalize()
-                    view!!.findViewById<TextView>(R.id.temp).text = temp
-//                    view!!.findViewById<TextView>(R.id.temp_min).text = tempMin
-//                    view!!.findViewById<TextView>(R.id.temp_max).text = tempMax
-//                    view!!.findViewById<TextView>(R.id.sunrise).text =
-//                        SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise * 1000))
-//                    view!!.findViewById<TextView>(R.id.sunset).text =
-//                        SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunset * 1000))
-//                    view!!.findViewById<TextView>(R.id.wind).text = windSpeed
-//                    view!!.findViewById<TextView>(R.id.pressure).text = pressure
-//                    view!!.findViewById<TextView>(R.id.humidity).text = humidity
-
-                    view!!.findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
-                    view!!.findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
-                }
+                view!!.findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
+                view!!.findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
 
             } catch (e: Exception) {
+                e.printStackTrace()
                 view!!.findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 view!!.findViewById<TextView>(R.id.errorText).visibility = View.VISIBLE
+            }
+        }
+    }
+
+    fun setIcon(jsonArray:JSONArray){
+        for (i in 0..4) {
+            var item = jsonArray.getJSONObject(i)
+            var weather = item.getJSONArray("weather").getJSONObject(0)
+            var icon = weather.get("icon").toString()
+
+// there we are put our weather data in a view fragments
+            when (i) {
+                0 -> {
+                    Picasso.with(context).load("https://openweathermap.org/img/wn/$icon@2x.png")
+                        .into(firstImageView)
+                    view?.findViewById<TextView>(R.id.bottom1)?.text = item.getJSONObject("temp").get("day").toString()
+                }
+                1 -> {
+                    Picasso.with(context).load("https://openweathermap.org/img/wn/$icon@2x.png")
+                        .into(secondImageView)
+                    view?.findViewById<TextView>(R.id.bottom2)?.text = item.getJSONObject("temp").get("day").toString()
+                }
+                2 -> {
+                    Picasso.with(context).load("https://openweathermap.org/img/wn/$icon@2x.png")
+                        .into(thirdImageView)
+                    view?.findViewById<TextView>(R.id.bottom3)?.text = item.getJSONObject("temp").get("day").toString()
+                }
+                3 -> {
+                    Picasso.with(context).load("https://openweathermap.org/img/wn/$icon@2x.png")
+                        .into(fourthImageView)
+                    view?.findViewById<TextView>(R.id.bottom4)?.text = item.getJSONObject("temp").get("day").toString()
+                }
+                4 -> {
+                    Picasso.with(context).load("https://openweathermap.org/img/wn/$icon@2x.png")
+                        .into(fifthImageView)
+                    view?.findViewById<TextView>(R.id.bottom5)?.text = item.getJSONObject("temp").get("day").toString()
+                }
             }
         }
     }
