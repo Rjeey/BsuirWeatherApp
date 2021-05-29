@@ -14,7 +14,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="10sp"
-                android:background="@drawable/bg_gradient"
                 android:gravity="center">
 
 
@@ -127,8 +126,9 @@
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
                   android:layout_alignParentBottom="true"
-                  android:layout_marginLeft="22sp" android:layout_toEndOf="@+id/bottomContainer2"
-                  android:layout_toRightOf="@+id/bottomContainer2" android:layout_marginStart="22sp">
+                  android:layout_marginLeft="20sp" android:layout_toEndOf="@+id/bottomContainer2"
+                  android:layout_toRightOf="@+id/bottomContainer2"
+                  android:layout_marginStart="20sp">
 
         <TextView android:id="@+id/weekDay3" android:layout_width="wrap_content"
                   android:layout_height="wrap_content" android:textSize="15sp"
@@ -160,8 +160,8 @@
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
                   android:layout_alignParentBottom="true"
-                  android:layout_marginLeft="22sp" android:layout_toEndOf="@+id/bottomContainer3"
-                  android:layout_toRightOf="@+id/bottomContainer3" android:layout_marginStart="22sp">
+                  android:layout_marginLeft="20sp" android:layout_toEndOf="@+id/bottomContainer3"
+                  android:layout_toRightOf="@+id/bottomContainer3" android:layout_marginStart="20sp">
 
         <TextView android:id="@+id/weekDay4" android:layout_width="wrap_content"
                   android:layout_height="wrap_content" android:textSize="15sp"
@@ -182,7 +182,7 @@
         <TextView android:id="@+id/bottom4" android:layout_width="wrap_content"
                   android:layout_height="wrap_content" android:textSize="15sp"
                   android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
-                  android:padding="10sp"
+                  android:padding="10dp"
                   android:textStyle="bold"
                   android:textAlignment="center"
                   android:gravity="center_horizontal"
@@ -193,12 +193,11 @@
                   android:layout_height="wrap_content"
                   android:orientation="vertical"
                   android:layout_alignParentBottom="true"
-                  android:layout_marginLeft="22sp" android:layout_toEndOf="@+id/bottomContainer4"
-                  android:layout_toRightOf="@+id/bottomContainer4" android:layout_marginStart="22sp"
-                  android:layout_marginRight="22dp" android:layout_marginEnd="22dp" android:layout_alignParentEnd="true"
-                  android:layout_alignParentRight="true">
+                  android:paddingBottom="0dp"
+                  android:layout_marginLeft="20sp" android:layout_toEndOf="@+id/bottomContainer4"
+                  android:layout_toRightOf="@+id/bottomContainer4">
 
-        <TextView android:id="@+id/weekDay5" android:layout_width="match_parent"
+        <TextView android:id="@+id/weekDay5" android:layout_width="wrap_content"
                   android:layout_height="wrap_content" android:textSize="15sp"
                   android:fontFamily="sans-serif-thin" android:layout_gravity="bottom"
                   android:padding="10sp"
