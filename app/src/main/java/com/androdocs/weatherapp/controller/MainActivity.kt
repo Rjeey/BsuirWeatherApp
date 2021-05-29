@@ -26,9 +26,9 @@ class MainActivity :AppCompatActivity() {
     fun getCountries(){
         val start= Locale.getISOCountries();
         for (country:String in start) run {
-            val locale = Locale("en", country)
+            val locale = Locale("", country)
 
-            countryList.add(locale.displayCountry+locale.getDisplayName())
+            countryList.add(locale.displayCountry)
         }
     }
 
